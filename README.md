@@ -10,12 +10,13 @@ For API connection we are using library [python-binance](https://github.com/samm
 
 ## Installation
 1) The simplest way:
-
-
+  
+    
     git clone https://github.com/WISEPLAT/backtrader_binance
 
 or
 
+    # please run this command two times!
     pip install git+https://github.com/WISEPLAT/backtrader_binance.git
 
 2) Please use backtrader from my repository (as your can push your commits in it). Install it:
@@ -130,11 +131,13 @@ The **Program** is distributed under the terms of the [MIT](https://choosealicen
 
 ## Установка
 1) Самый простой способ:
-
-
+  
+        
     git clone https://github.com/WISEPLAT/backtrader_binance
+
 или
 
+    # пожалуйста запустите эту команду два раза!
     pip install git+https://github.com/WISEPLAT/backtrader_binance.git
 
 2) Пожалуйста, используйте backtrader из моего репозитория (так как вы можете размещать в нем свои коммиты). Установите его:
