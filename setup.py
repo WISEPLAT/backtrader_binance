@@ -1,6 +1,7 @@
 # pip install setuptools twine
 # python setup.py sdist bdist_wheel
 # twine upload --repository testpypi dist/*
+# 'backtrader @ git+https://github.com/WISEPLAT/backtrader.git' - was removed from install_requires, as it can't publish
 import os.path
 import codecs  # To use a consistent encoding
 from setuptools import setup, find_packages
@@ -21,7 +22,7 @@ setup(name='backtrader_binance',
       long_description_content_type='text/markdown',
       url='https://github.com/WISEPLAT/backtrader_binance',
       packages=find_packages(exclude=['docs', 'examples', 'ConfigBinance']),
-      install_requires=['python-binance', 'pandas', 'matplotlib', 'backtrader @ git+https://github.com/WISEPLAT/backtrader.git'],
+      install_requires=['python-binance', 'pandas', 'matplotlib'],
       classifiers=[
           # How mature is this project? Common values are
           #   3 - Alpha
