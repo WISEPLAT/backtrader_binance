@@ -1,3 +1,6 @@
+# pip install setuptools twine
+# python setup.py sdist bdist_wheel
+# twine upload --repository testpypi dist/*
 import os.path
 import codecs  # To use a consistent encoding
 from setuptools import setup, find_packages
@@ -28,7 +31,7 @@ setup(name='backtrader_binance',
 
           # Indicate who your project is intended for
           'Intended Audience :: Developers',
-          'Intended Audience :: Financial Industry',
+          'Intended Audience :: Financial and Insurance Industry',
 
           # Indicate which Topics are covered by the package
           'Topic :: Software Development',
