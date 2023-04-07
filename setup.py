@@ -2,6 +2,7 @@
 # python setup.py sdist bdist_wheel
 # twine upload --repository testpypi dist/*
 # 'backtrader @ git+https://github.com/WISEPLAT/backtrader.git' - was removed from install_requires, as it can't publish
+# twine upload --repository pypi dist/*
 import os.path
 import codecs  # To use a consistent encoding
 from setuptools import setup, find_packages
