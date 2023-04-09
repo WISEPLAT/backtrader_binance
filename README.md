@@ -119,6 +119,14 @@ related to the use of the **Program**.
 
 The **Program** is distributed under the terms of the [MIT](https://choosealicense.com/licenses/mit ) license.
 
+## Star History
+
+Please put a Star 🌟 for this code
+
+[![Star History Chart](https://api.star-history.com/svg?repos=WISEPLAT/backtrader_binance&type=Timeline)](https://star-history.com/#WISEPLAT/backtrader_binance&Timeline)
+
+Пожалуйста поставьте Звезду 🌟 этому коду
+
 ==========================================================================
 
 # backtrader_binance
