@@ -41,7 +41,7 @@ if __name__ == '__main__':  # Entry point when running this script
 
     d1 = bt.feeds.GenericCSVData(  # We get the history from the file - which does not contain the last 5 days
         timeframe=_t, compression=_c,  # to be in the same TF as d2
-        dataname=f'{symbol}_{tf}_minus_5_days.csv',  # File to import from Binance. Created from example 01 - Symbol data to DF.py
+        dataname=f'{symbol}_{tf}_minus_5_days.csv',  # File to import from Binance. Created from example 02 - Symbol data to DF.py
         separator=',',  # Columns are separated by commas
         dtformat='%Y-%m-%d',  # dtformat='%Y-%m-%d %H:%M:%S',  # Date/time format YYYY-MM-DD HH:MM:SS
         openinterest=-1,  # There is no open interest in the file

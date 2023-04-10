@@ -41,7 +41,7 @@ if __name__ == '__main__':  # Точка входа при запуске это
 
     d1 = bt.feeds.GenericCSVData(  # Получаем историю из файла - в котором нет последних 5 дней
         timeframe=_t, compression=_c,  # что-бы был тот же ТФ как и у d2
-        dataname=f'{symbol}_{tf}_minus_5_days.csv',  # Файл для импорта из Binance. Создается из примера 01 - Symbol data to DF.py
+        dataname=f'{symbol}_{tf}_minus_5_days.csv',  # Файл для импорта из Binance. Создается из примера 02 - Symbol data to DF.py
         separator=',',  # Колонки разделены запятой
         dtformat='%Y-%m-%d',  # dtformat='%Y-%m-%d %H:%M:%S',  # Формат даты/времени YYYY-MM-DD HH:MM:SS
         openinterest=-1,  # Открытого интереса в файле нет
