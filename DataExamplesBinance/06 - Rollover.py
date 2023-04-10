@@ -1,7 +1,7 @@
 import datetime as dt
 import backtrader as bt
 from backtrader_binance import BinanceStore
-from my_config.Config import Config  # Configuration file
+from ConfigBinance.Config import Config  # Configuration file
 from Strategy import StrategyJustPrintsOHLCVAndState  # Trading System
 
 
