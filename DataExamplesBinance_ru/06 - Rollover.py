@@ -1,8 +1,25 @@
 import datetime as dt
 import backtrader as bt
 from backtrader_binance import BinanceStore
-from ConfigBinance.Config import Config  # Файл конфигурации
+from my_config.Config import Config  # Файл конфигурации
 from Strategy import StrategyJustPrintsOHLCVAndState  # Торговая система
+
+
+def get_timeframe(tf, TimeFrame):
+    """Преобразуем ТФ в параметры для добавления данных по стратегии"""
+    interval = 1  # по умолчанию таймфрейм минутный
+    _timeframe = TimeFrame.Minutes  # по умолчанию таймфрейм минутный
+
+    if tf == '1m': interval = 1
+    if tf == '5m': interval = 5
+    if tf == '15m': interval = 15
+    if tf == '30m': interval = 30
+    if tf == '1h': interval = 60
+    if tf == '1d': _timeframe = TimeFrame.Days
+    if tf == '1w': _timeframe = TimeFrame.Weeks
+    if tf == '1M': _timeframe = TimeFrame.Months
+    return _timeframe, interval
+
 
 # Склейка истории тикера из файла и Binance (Rollover)
 if __name__ == '__main__':  # Точка входа при запуске этого скрипта
@@ -19,9 +36,11 @@ if __name__ == '__main__':  # Точка входа при запуске это
     broker = store.getbroker()
     cerebro.setbroker(broker)
 
-    tf = "1d"
+    tf = "1d"  # '1m'  '5m' '15m' '30m' '1h' '1d' '1w' '1M'
+    _t, _c = get_timeframe(tf, bt.TimeFrame)
 
     d1 = bt.feeds.GenericCSVData(  # Получаем историю из файла - в котором нет последних 5 дней
+        timeframe=_t, compression=_c,  # что-бы был тот же ТФ как и у d2
         dataname=f'{symbol}_{tf}_minus_5_days.csv',  # Файл для импорта из Binance. Создается из примера 01 - Symbol data to DF.py
         separator=',',  # Колонки разделены запятой
         dtformat='%Y-%m-%d',  # dtformat='%Y-%m-%d %H:%M:%S',  # Формат даты/времени YYYY-MM-DD HH:MM:SS
@@ -29,8 +48,8 @@ if __name__ == '__main__':  # Точка входа при запуске это
         sessionend=dt.time(0, 0),  # Для дневных данных и выше подставляется время окончания сессии. Чтобы совпадало с историей, нужно поставить закрытие на 00:00
     )
 
-    from_date = dt.datetime.utcnow() - dt.timedelta(days=10)  # берем данные за последние 10 дней
-    d2 = store.getdata(timeframe=bt.TimeFrame.Days, compression=1, dataname=symbol, start_date=from_date, LiveBars=False)  # Исторические данные по самому меньшему временному интервалу
+    from_date = dt.datetime.utcnow() - dt.timedelta(days=15)  # берем данные за последние 15 дней
+    d2 = store.getdata(timeframe=_t, compression=_c, dataname=symbol, start_date=from_date, LiveBars=False)  # Исторические данные по самому меньшему временному интервалу
 
     cerebro.rolloverdata(d1, d2, name=symbol)  # Склеенный тикер
 
