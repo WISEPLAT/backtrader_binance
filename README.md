@@ -92,6 +92,10 @@ The **StrategyExamplesBinance** folder contains the code of sample strategies.
   * The strategy shows how to buy by close price and sell by market a little value of ETH after 3 bars.
   * Example of placing orders on the Binance exchange.
     * **Do not forget to cancel the submitted orders from the exchange after the test!**
+* **07 - Offline Backtest Indicators.py ** - An example of a trading strategy for a history test using SMA and RSI indicators - not live mode - for two BTC and ETH tickers on the base USDT ticker.
+  * The strategy shows how to apply indicators (SMA, RSI) to several tickers at the same time.
+    * generates 177% of revenue at the time of video recording))
+    * Non-live mode - for testing strategies without sending orders to the exchange!
 
 ## Thanks
 - backtrader: Very simple and cool library!
@@ -225,6 +229,10 @@ class Config:
   * Стратегия показывает, как покупать по цене закрытия и продавать по рыночной небольшое количество ETH через 3 бара.
   * Пример размещения ордеров на бирже Binance.
     * **Не забудьте отменить выставленные ордера с биржи после тестирования!**
+* **07 - Offline Backtest Indicators.py** - Пример торговой стратегии для теста на истории с использованием индикаторов SMA и RSI - не live режим - для двух тикеров BTC и ETH на базовом тикере USDT. 
+  * В стратегии показано как применять индикаторы (SMA, RSI) к нескольким тикерам одновременно.
+    * генерит 177% дохода на момент записи видео )) 
+    * Не live режим - для тестирования стратегий без отправки заявок на биржу!
 ## Спасибо
 - backtrader: очень простая и классная библиотека!
 - [python-binance](https://github.com/sammchardy/python-binance ): Для создания оболочки Binance API, сокращающей большую часть работы.
