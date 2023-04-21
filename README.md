@@ -92,7 +92,7 @@ The **StrategyExamplesBinance** folder contains the code of sample strategies.
   * The strategy shows how to buy by close price and sell by market a little value of ETH after 3 bars.
   * Example of placing orders on the Binance exchange.
     * **Do not forget to cancel the submitted orders from the exchange after the test!**
-* **07 - Offline Backtest Indicators.py ** - An example of a trading strategy for a history test using SMA and RSI indicators - not live mode - for two BTC and ETH tickers on the base USDT ticker.
+* **07 - Offline Backtest Indicators.py** - An example of a trading strategy for a history test using SMA and RSI indicators - not live mode - for two BTC and ETH tickers on the base USDT ticker.
   * The strategy shows how to apply indicators (SMA, RSI) to several tickers at the same time.
     * generates 177% of revenue at the time of video recording))
     * Non-live mode - for testing strategies without sending orders to the exchange!
