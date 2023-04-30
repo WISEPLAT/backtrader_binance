@@ -26,7 +26,11 @@ pip install git+https://github.com/WISEPLAT/backtrader_binance.git
 ```shell
 pip install git+https://github.com/WISEPLAT/backtrader.git
 ```
+-- Can I use your binance interface with original backtrader?
 
+-- Yes, you can use original backtrader, as the author of original backtrader had approved all my changes. 
+
+Here is the link: [mementum/backtrader#472](https://github.com/mementum/backtrader/pull/472)
 3) We have some dependencies, you need to install them: 
 ```shell
 pip install python-binance pandas matplotlib
