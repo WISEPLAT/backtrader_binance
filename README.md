@@ -168,6 +168,11 @@ pip install git+https://github.com/WISEPLAT/backtrader_binance.git
 ```shell
 pip install git+https://github.com/WISEPLAT/backtrader.git
 ```
+-- Могу ли я использовать ваш интерфейс binance с оригинальным backtrader?
+
+-- Да, вы можете использовать оригинальный backtrader, так как автор оригинального backtrader одобрил все мои изменения.
+
+Вот ссылка: [mementum/backtrader#472](https://github.com/mementum/backtrader/pull/472)
 
 3) У нас есть некоторые зависимости, вам нужно их установить:
 ```shell
