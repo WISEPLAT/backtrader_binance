@@ -32,7 +32,9 @@ if __name__ == '__main__':  # Entry point when running this script
         api_key=Config.BINANCE_API_KEY,
         api_secret=Config.BINANCE_API_SECRET,
         coin_target=coin_target,
-        testnet=False)  # Binance Storage
+        testnet=False,
+        # tld="us",  # for US customers => to use the 'Binance.us' url
+    )  # Binance Storage
     broker = store.getbroker()
     cerebro.setbroker(broker)
 
