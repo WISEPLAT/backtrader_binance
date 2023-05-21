@@ -67,7 +67,11 @@ The **DataExamplesBinance** folder contains the code of examples for working wit
 * **05 - Replay.py** - launching a trading strategy on a smaller timeframe, with processing on a larger one and displaying a larger interval chart
 * **06 - Rollover.py** - launch of a trading strategy based on gluing data from a file with historical data and the last downloaded history from the broker
 * **07 - Get Asset Balance.py** - getting the ticker balance directly through the Binance API
-* **08 - Timeframes.py** - trading strategy for one ticker on different timeframes
+* **08 - Timeframes.py** - trading strategy is running on different timeframes.
+* **09 - Get Asset Info.py** - getting info about asset: balance, lot size, min price step, min value to buy and etc.
+* **09 - Get Asset Info - no Decimal.py** - getting info about asset: balance, lot size, min price step, min value to buy and etc.
+* **09 - Get Asset Info - through client.py** - getting info about asset: balance, lot size, min price step, min value to buy and etc.
+* **10 - Get Historical Data.py** - getting historical data through binance client for asset.
 * **Strategy.py** - An example of a trading strategy that only outputs data of the OHLCV for ticker/tickers
 
 The **StrategyExamplesBinance** folder contains the code of sample strategies.
@@ -243,6 +247,12 @@ class Config:
   * В стратегии показано как применять индикаторы (SMA, RSI) к нескольким тикерам одновременно.
     * генерит 177% дохода на момент записи видео )) 
     * Не live режим - для тестирования стратегий без отправки заявок на биржу!
+* **08 - Timeframes.py** - торговая стратегия работает на разных таймфреймах.
+* **09 - Get Asset Info.py ** - получение информации об активе: баланс, размер лота, минимальный шаг цены, минимальная стоимость покупки и т.д.
+* **09 - Get Asset Info - no Decimal.py ** - получение информации об активе: баланс, размер лота, минимальный шаг цены, минимальная стоимость покупки и т.д.
+* **09 - Get Asset Info - through client.py ** - получение информации об активе: баланс, размер лота, минимальный шаг цены, минимальная стоимость покупки и т.д.
+* **10 - Get Historical Data.py ** - получение исторических данных через клиент binance для актива.
+
 ## Спасибо
 - backtrader: очень простая и классная библиотека!
 - [python-binance](https://github.com/sammchardy/python-binance ): Для создания оболочки Binance API, сокращающей большую часть работы.
