@@ -48,6 +48,8 @@ class BinanceStore(object):
         self.get_balance()
 
         self._step_size = {}
+        self._min_order = {}
+        self._min_order_in_target = {}
         self._tick_size = {}
 
         self._broker = BinanceBroker(store=self)
@@ -159,8 +161,11 @@ class BinanceStore(object):
         for f in symbol_info['filters']:
             if f['filterType'] == 'LOT_SIZE':
                 self._step_size[symbol] = f['stepSize']
+                self._min_order[symbol] = f['minQty']
             elif f['filterType'] == 'PRICE_FILTER':
                 self._tick_size[symbol] = f['tickSize']
+            elif f['filterType'] == 'NOTIONAL':
+                self._min_order_in_target[symbol] = f['minNotional']
 
     def get_interval(self, timeframe, compression):
         return self._GRANULARITIES.get((timeframe, compression))

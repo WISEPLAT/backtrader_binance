@@ -55,12 +55,12 @@ class BinanceBroker(BrokerBase):
         self.startingcash = self.cash = self.getcash()  # Стартовые и текущие свободные средства по счету. Подписка на позиции для портфеля/биржи
         self.startingvalue = self.value = self.getvalue()  # Стартовая и текущая стоимость позиций
 
-    def _execute_order(self, order, date, executed_size, executed_price):
+    def _execute_order(self, order, date, executed_size, executed_price, executed_value, executed_comm):
         order.execute(
             date,
             executed_size,
             executed_price,
-            0, 0.0, 0.0,
+            0, executed_value, executed_comm,
             0, 0.0, 0.0,
             0.0, 0.0,
             0, 0.0)
@@ -69,15 +69,24 @@ class BinanceBroker(BrokerBase):
 
     def _handle_user_socket_message(self, msg):
         """https://binance-docs.github.io/apidocs/spot/en/#payload-order-update"""
+        # print(msg)
+        # {'e': 'executionReport', 'E': 1707120960762, 's': 'ETHUSDT', 'c': 'oVoRofmTTXJCqnGNuvcuEu', 'S': 'BUY', 'o': 'MARKET', 'f': 'GTC', 'q': '0.00220000', 'p': '0.00000000', 'P': '0.00000000', 'F': '0.00000000', 'g': -1, 'C': '', 'x': 'NEW', 'X': 'NEW', 'r': 'NONE', 'i': 15859894465, 'l': '0.00000000', 'z': '0.00000000', 'L': '0.00000000', 'n': '0', 'N': None, 'T': 1707120960761, 't': -1, 'I': 33028455024, 'w': True, 'm': False, 'M': False, 'O': 1707120960761, 'Z': '0.00000000', 'Y': '0.00000000', 'Q': '0.00000000', 'W': 1707120960761, 'V': 'EXPIRE_MAKER'}
+
+        # {'e': 'executionReport', 'E': 1707120960762, 's': 'ETHUSDT', 'c': 'oVoRofmTTXJCqnGNuvcuEu', 'S': 'BUY', 'o': 'MARKET', 'f': 'GTC', 'q': '0.00220000', 'p': '0.00000000', 'P': '0.00000000', 'F': '0.00000000', 'g': -1, 'C': '',
+        # 'x': 'TRADE', 'X': 'FILLED', 'r': 'NONE', 'i': 15859894465, 'l': '0.00220000', 'z': '0.00220000', 'L': '2319.53000000', 'n': '0.00000220', 'N': 'ETH', 'T': 1707120960761, 't': 1297224255, 'I': 33028455025, 'w': False,
+        # 'm': False, 'M': True, 'O': 1707120960761, 'Z': '5.10296600', 'Y': '5.10296600', 'Q': '0.00000000', 'W': 1707120960761, 'V': 'EXPIRE_MAKER'}
         if msg['e'] == 'executionReport':
             if msg['s'] in self._store.symbols:
                 for o in self.open_orders:
                     if o.binance_order['orderId'] == msg['i']:
                         if msg['X'] in [ORDER_STATUS_FILLED, ORDER_STATUS_PARTIALLY_FILLED]:
-                            date = dt.datetime.fromtimestamp(msg['T'] / 1000)
+                            _dt = dt.datetime.fromtimestamp(int(msg['T']) / 1000)
                             executed_size = float(msg['l'])
                             executed_price = float(msg['L'])
-                            self._execute_order(o, dt, executed_size, executed_price)
+                            executed_value = float(msg['Z'])
+                            executed_comm = float(msg['n'])
+                            # print(_dt, executed_size, executed_price)
+                            self._execute_order(o, _dt, executed_size, executed_price, executed_value, executed_comm)
                         self._set_order_status(o, msg['X'])
 
                         if o.status not in [Order.Accepted, Order.Partial]:
@@ -102,13 +111,23 @@ class BinanceBroker(BrokerBase):
         type = self._ORDER_TYPES.get(exectype, ORDER_TYPE_MARKET)
         symbol = data._name
         binance_order = self._store.create_order(symbol, side, type, size, price)
+        # print(1111, binance_order)
+        # 1111 {'symbol': 'ETHUSDT', 'orderId': 15860400971, 'orderListId': -1, 'clientOrderId': 'EO7lLPcYNZR8cNEg8AOEPb', 'transactTime': 1707124560731, 'price': '0.00000000', 'origQty': '0.00220000', 'executedQty': '0.00220000', 'cummulativeQuoteQty': '5.10356000', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'BUY', 'workingTime': 1707124560731, 'fills': [{'price': '2319.80000000', 'qty': '0.00220000', 'commission': '0.00000220', 'commissionAsset': 'ETH', 'tradeId': 1297261843}], 'selfTradePreventionMode': 'EXPIRE_MAKER'}
         order = BinanceOrder(owner, data, exectype, binance_order)
         if binance_order['status'] in [ORDER_STATUS_FILLED, ORDER_STATUS_PARTIALLY_FILLED]:
+            avg_price =0.0
+            comm = 0.0
+            for f in binance_order['fills']:
+                comm += float(f['commission'])
+                avg_price += float(f['price'])
+            avg_price = self._store.format_price(symbol, avg_price/len(binance_order['fills']))
             self._execute_order(
                 order,
                 dt.datetime.fromtimestamp(binance_order['transactTime'] / 1000),
                 float(binance_order['executedQty']),
-                float(binance_order['price']))
+                float(avg_price),
+                float(binance_order['cummulativeQuoteQty']),
+                float(comm))
         self._set_order_status(order, binance_order['status'])
         if order.status == Order.Accepted:
             self.open_orders.append(order)
