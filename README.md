@@ -42,7 +42,7 @@ Here is the link: [mementum/backtrader#472](https://github.com/mementum/backtrad
 
 3) We have some dependencies, you need to install them: 
 ```shell
-pip install python-binance pandas matplotlib
+pip install python-binance backtrader pandas matplotlib
 ```
 
 or
@@ -222,7 +222,7 @@ pip install git+https://github.com/WISEPLAT/backtrader.git
 
 3) У нас есть некоторые зависимости, вам нужно их установить:
 ```shell
-pip install python-binance pandas matplotlib
+pip install python-binance backtrader pandas matplotlib
 ```
 
 или
