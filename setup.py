@@ -14,7 +14,7 @@ with codecs.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(name='backtrader_binance',
-      version='2.0.2',
+      version='2.0.3',
       author='wiseplat',
       author_email='oshpagin@gmail.com',
       license='MIT License',
