@@ -2,9 +2,9 @@
 Binance API integration with [Backtrader](https://github.com/WISEPLAT/backtrader).
 
 With this integration you can do:
- - Backtesting your strategy on historical data from the exchange [Binance](https://www.binance.com/?ref=CPA_004RZBKQWK ) + [Backtrader](https://github.com/WISEPLAT/backtrader )  // Backtesting 
- - Launch trading systems for automatic trading on the exchange [Binance](https://www.binance.com/?ref=CPA_004RZBKQWK) + [Backtrader](https://github.com/WISEPLAT/backtrader ) // Live trading
- - Download historical data for cryptocurrencies from the exchange [Binance](https://www.binance.com/?ref=CPA_004RZBKQWK)
+ - Backtesting your strategy on historical data from the exchange [Binance](https://accounts.binance.com/register?ref=200640624 ) + [Backtrader](https://github.com/WISEPLAT/backtrader )  // Backtesting 
+ - Launch trading systems for automatic trading on the exchange [Binance](https://accounts.binance.com/register?ref=200640624) + [Backtrader](https://github.com/WISEPLAT/backtrader ) // Live trading
+ - Download historical data for cryptocurrencies from the exchange [Binance](https://accounts.binance.com/register?ref=200640624)
 
 For API connection we are using library [python-binance](https://github.com/sammchardy/python-binance).
 
@@ -16,7 +16,7 @@ BTC (Bitcoin BTC): 1ENhx1HUMJZjGAfYaT1vfsqwKHgVkqwX1D
 
 ETH (Ethereum ERC20): 0xfd546640c911ba90d1409a4fbbb4322ae73e7814
 
-or by [Binance](https://www.binance.com/?ref=CPA_004RZBKQWK ) **ID** (no commission) **200640624** through the exchange
+or by [Binance](https://accounts.binance.com/register?ref=200640624 ) **ID** (no commission) **200640624** through the exchange
 
 ## Installation
 1) The simplest way:
@@ -66,7 +66,7 @@ class Config:
 ```
 
 #### How to get a Binance API token:
-1. Register your account on [Binance](https://www.binance.com/?ref=CPA_004RZBKQWK )
+1. Register your account on [Binance](https://accounts.binance.com/register?ref=200640624 )
 2. Go to the ["API Management"](https://www.binance.com/en/my/settings/api-management?ref=CPA_004RZBKQWK ) 
 3. Then click the "Create API" button and select "System Generated".
 4. In the "API Restrictions" section, enable "Enable Spot and Margin Trading".
@@ -74,7 +74,7 @@ class Config:
 
 #### Now you can run examples
 
-The **DataExamplesBinance** folder contains the code of examples for working with exchange data via the [Binance](https://www.binance.com/?ref=CPA_004RZBKQWK ) API.
+The **DataExamplesBinance** folder contains the code of examples for working with exchange data via the [Binance](https://accounts.binance.com/register?ref=200640624 ) API.
 
 * **01 - Symbol.py** - trading strategy for obtaining historical and "live" data of one ticker for one timeframe
 * **02 - Symbol data to DF.py** - export to csv file of historical data of one ticker for one timeframe
@@ -207,9 +207,9 @@ Please put a Star 🌟 for this code
 Интеграция Binance API с [Backtrader](https://github.com/WISEPLAT/backtrader ).
 
 С помощью этой интеграции вы можете делать:
-- Тестирование вашей стратегии на исторических данных с биржи [Binance](https://www.binance.com/?ref=CPA_004RZBKQWK ) + [Backtrader](https://github.com/WISEPLAT/backtrader )
-- Запускать торговые системы для автоматической торговли на бирже [Binance](https://www.binance.com/?ref=CPA_004RZBKQWK ) + [Backtrader](https://github.com/WISEPLAT/backtrader ) 
-- Загружать исторические данные по криптовалютам с биржи [Binance](https://www.binance.com/?ref=CPA_004RZBKQWK )
+- Тестирование вашей стратегии на исторических данных с биржи [Binance](https://accounts.binance.com/register?ref=200640624 ) + [Backtrader](https://github.com/WISEPLAT/backtrader )
+- Запускать торговые системы для автоматической торговли на бирже [Binance](https://accounts.binance.com/register?ref=200640624 ) + [Backtrader](https://github.com/WISEPLAT/backtrader ) 
+- Загружать исторические данные по криптовалютам с биржи [Binance](https://accounts.binance.com/register?ref=200640624 )
 
 Для подключения к API мы используем библиотеку [python-binance](https://github.com/sammchardy/python-binance ).
 
@@ -221,7 +221,7 @@ BTC (Bitcoin BTC): 1ENhx1HUMJZjGAfYaT1vfsqwKHgVkqwX1D
 
 ETH (Ethereum ERC20): 0xfd546640c911ba90d1409a4fbbb4322ae73e7814
 
-или по [Binance](https://www.binance.com/?ref=CPA_004RZBKQWK ) **ID** (без комиссии) **200640624** через биржу
+или по [Binance](https://accounts.binance.com/register?ref=200640624 ) **ID** (без комиссии) **200640624** через биржу
 
 ## Установка
 1) Самый простой способ:
@@ -272,7 +272,7 @@ class Config:
 ```
 
 ####  Как получить токен Binance API:
-1. Зарегистрируйте свой аккаунт на [Binance](https://www.binance.com/?ref=CPA_004RZBKQWK )
+1. Зарегистрируйте свой аккаунт на [Binance](https://accounts.binance.com/register?ref=200640624 )
 2. Перейдите в раздел ["Управление API"](https://www.binance.com/en/my/settings/api-management?ref=CPA_004RZBKQWK )
 3. Затем нажмите кнопку "Создать API" и выберите "Сгенерированный системой".
 4. В разделе "Ограничения API" включите "Включить спотовую и маржинальную торговлю".
@@ -280,7 +280,7 @@ class Config:
 
 #### Теперь можно запускать примеры
 
-В папке **DataExamplesBinance_ru** находится код примеров по работе с биржевыми данными через API интерфейс [Binance](https://www.binance.com/?ref=CPA_004RZBKQWK ).
+В папке **DataExamplesBinance_ru** находится код примеров по работе с биржевыми данными через API интерфейс [Binance](https://accounts.binance.com/register?ref=200640624 ).
 
 * **01 - Symbol.py** - торговая стратегия для получения исторических и "живых" данных одного тикера по одному таймфрейму
 * **02 - Symbol data to DF.py** - экспорт в csv файл исторических данных одного тикера по одному таймфрейму
